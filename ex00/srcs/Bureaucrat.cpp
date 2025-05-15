@@ -1,22 +1,19 @@
 #include "../includes/Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("Default") {
+// orthodox canonical form
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {
     std::cout << "Default constructor called" << std::endl;
-    _grade = 0;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &src) {
     std::cout << "Copy constructor called" << std::endl;
-    _name = src._name;
-    grade = src.grade;
+    *this = src;
 }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &src) {
     std::cout << "Copy assignment operator called" << std::endl;
-    if (this != &src) {
-        _name = src._name;
-        _grade = src.grade;
-    }
+    if (this != &src)
+       *this = src;
     return *this;
 }
 
@@ -25,7 +22,6 @@ Bureaucrat::~Bureaucrat() {
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
-    std::cout << "Parameterized constructor called" << std::endl;
     if (grade < 1)
         throw Bureaucrat::GradeTooHighException();
     else if (grade > 150)
@@ -33,10 +29,36 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
     _grade = grade;
 }
 
+//functions
+std::string Bureaucrat::getName() const {
+  return _name;
+}
+
+int Bureaucrat::getGrade() const {
+  return _grade;
+}
+
+void Bureaucrat::promote() {
+    if (_grade > 1)
+        _grade--;
+}
+
+void Bureaucrat::demote() {
+    if (_grade < 150)
+        _grade++;
+}
+
+// exception
 const char *Bureaucrat::GradeTooHighException::what() const throw(){
     return "Error: Grade too high!";
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw(){
     return "Error: Grade too low!";
+}
+
+// overload operator
+std::ostream &operator<<(std::ostream &out, Bureaucrat const &src) {
+    out << src.getName() << ", bureaucrat grade " << src.getGrade();
+    return out;
 }
