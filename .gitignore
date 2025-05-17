@@ -1,0 +1,4 @@
+*.o
+Bureaucrat
+.vscode
+.idea
