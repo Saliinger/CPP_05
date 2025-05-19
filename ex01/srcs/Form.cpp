@@ -13,6 +13,9 @@ Form &Form::operator=(Form const &src) {
 
 Form::~Form() {}
 
+// other constructor
+Form::Form(const std::string name, const bool sign, const int signGrade, const int executeGrade) : _name(name), _signed(sign), _signGrade(signGrade), _executeGrade(executeGrade) {}
+
 // functions
 void Form::beSigned(Bureaucrat const &src) {}
 

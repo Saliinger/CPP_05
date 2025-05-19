@@ -16,6 +16,9 @@ class Form {
         Form &operator=(Form const &src);
         ~Form();
 
+        // other constructor
+        Form(const std::string name, const bool sign, const int signGrade, const int executeGrade);
+
         // functions
         const std::string &getName() const;
         bool isSign() const;
