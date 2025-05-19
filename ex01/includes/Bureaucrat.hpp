@@ -14,7 +14,6 @@ class Bureaucrat {
         Bureaucrat &operator=(Bureaucrat const &src);
         ~Bureaucrat();
 
-
         Bureaucrat(std::string name, int grade);
 
         // functions
