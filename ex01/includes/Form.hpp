@@ -17,15 +17,15 @@ class Form {
         ~Form();
 
         // functions
-        void getName();
-        void getSignature();
-        void getSignGrade();
-        void getExecuteGrade();
+        std::string getName() const;
+        bool getSignature() const;
+        int getSignGrade() const;
+        int getExecuteGrade() const;
 
-        void setName();
-        void setSignature();
-        void setSignGrade();
-        void setExecuteGrade();
+        void setName(std::string const name);
+        void setSignature(bool const signature);
+        void setSignGrade(int const signGrade);
+        void setExecuteGrade(int const exectuteGrade);
 
         void beSigned(Bureaucrat const &src);
 
