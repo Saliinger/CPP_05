@@ -1,7 +1,8 @@
 #pragma once
 
 #include <iostream>
-#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form {
     private:
@@ -38,5 +39,7 @@ class Form {
                 virtual const char *what(void) const throw();
         };
 };
+
+#include "Bureaucrat.hpp"
 
 std::ostream &operator<<(std::ofstream &out, Form const &src);

@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 
 SRCS =	./srcs/Bureaucrat.cpp \
-		./srcs/Form.hpp \
+		./srcs/Form.cpp \
 		main.cpp
 
 OBJ = $(SRCS:.cpp=.o)
