@@ -6,7 +6,7 @@ Form::Form() : _name("Default"), _signed(false), _signGrade(150), _executeGrade(
 Form::Form(const Form &src) : _name(src._name), _signed(src._signed),  _signGrade(src._signGrade), _executeGrade(src._executeGrade) {}
 
 Form &Form::operator=(Form const &src) {
-    if (*this != src)
+    if (this != &src)
         _signed = src._signed;
     return *this;
 }
@@ -41,7 +41,7 @@ const char *Form::GradeTooLowException::what() const throw() {
     return "Error: Grade too low!";
 }
 
-const char *Form::GradeTooLowException::what() const throw() {
+const char *Form::GradeTooHighException::what() const throw() {
     return "Error: Grade too high!";
 }
 
