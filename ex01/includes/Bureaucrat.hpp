@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include "Form.hpp"
 
 class Bureaucrat {
     private:
@@ -22,8 +23,10 @@ class Bureaucrat {
         void promote();
         void demote();
 
+        void signForm(Form &toSign);
+
         // exception
-        class GradeTooHighException  : public std::exception {
+        class GradeTooHighException : public std::exception {
             public:
                 virtual const char *what(void) const throw();
         };

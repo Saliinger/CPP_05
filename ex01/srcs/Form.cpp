@@ -14,10 +14,18 @@ Form &Form::operator=(Form const &src) {
 Form::~Form() {}
 
 // other constructor
-Form::Form(const std::string name, const bool sign, const int signGrade, const int executeGrade) : _name(name), _signed(sign), _signGrade(signGrade), _executeGrade(executeGrade) {}
+Form::Form(const std::string name, const int signGrade, const int executeGrade) : _name(name), _signed(false), _signGrade(signGrade), _executeGrade(executeGrade) {}
 
 // functions
-void Form::beSigned(Bureaucrat const &src) {}
+void Form::beSigned(Bureaucrat const &src) {
+    if (src.getGrade() <= _signGrade)
+    {
+        _signed = true;
+        std::cout << src.getName() << " signed " << this->getName() << std::endl;
+    }
+    else
+        throw Form::GradeTooLowException();
+}
 
 // getters
 const std::string &Form::getName() const { return _name; }
@@ -28,19 +36,17 @@ int Form::getSignGrade() const { return _signGrade; }
 
 int Form::getExecuteGrade() const { return _executeGrade; }
 
-
-// setters
-void Form::sign() { _signed = true; }
-
-void Form::unsign() { _signed = false; }
-
 // exception
-const char *Form::GradeTooLowException::what() const throw(){
-    return "Grade to low to sign !";
+const char *Form::GradeTooLowException::what() const throw() {
+    return "Error: Grade too low!";
+}
+
+const char *Form::GradeTooLowException::what() const throw() {
+    return "Error: Grade too high!";
 }
 
 // overload operator
 std::ostream &operator<<(std::ostream &out, Form const &src) {
-    out << "NAME: " << src.getName() << ",\nSIGNED: " << src.isSign() << ",\nSIGN GRADE: " << src.getSignGrade() << ",\nEXECUTE GRADE: " << src.getExecuteGrade() << std::endl;
+    out << "NAME: " << src.getName() << ",\nSIGNED: " << src.isSign() << ",\nSIGN GRADE: " << src.getSignGrade() << ",\nEXECUTE GRADE: " << src.getExecuteGrade();
     return out;
 }

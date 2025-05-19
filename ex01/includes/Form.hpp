@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include "Bureaucrat.hpp"
+#include "./Bureaucrat.hpp"
 
 class Form {
     private:
@@ -17,7 +17,7 @@ class Form {
         ~Form();
 
         // other constructor
-        Form(const std::string name, const bool sign, const int signGrade, const int executeGrade);
+        Form(const std::string name, const int signGrade, const int executeGrade);
 
         // functions
         const std::string &getName() const;
@@ -25,13 +25,15 @@ class Form {
         int getSignGrade() const;
         int getExecuteGrade() const;
 
-      
-        void sign();
-        void unsign();
-
         void beSigned(Bureaucrat const &src);
 
+        // exception
         class GradeTooLowException : public std::exception {
+            public:
+                virtual const char *what(void) const throw();
+        };
+
+        class GradeTooHighException : public std::exception {
             public:
                 virtual const char *what(void) const throw();
         };
