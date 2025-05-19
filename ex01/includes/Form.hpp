@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include "Bureaucrat.hpp"
 
 class Form {
     private:
@@ -26,7 +27,12 @@ class Form {
         void setSignGrade();
         void setExecuteGrade();
 
+        void beSigned(Bureaucrat const &src);
 
+        class GradeTooLowException : public std::exception {
+            public:
+                virtual const char *what(void) const throw();
+        };
 };
 
 std::ostream &operator<<(std::ofstream &out, Form const &src);
