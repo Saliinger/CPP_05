@@ -43,4 +43,4 @@ class AForm {
 
 #include "Bureaucrat.hpp"
 
-std::ostream &operator<<(std::ofstream &out, Form const &src);
+std::ostream &operator<<(std::ofstream &out, AForm const &src);

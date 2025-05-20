@@ -52,7 +52,7 @@ void Bureaucrat::demote() {
         throw Bureaucrat::GradeTooLowException();
 }
 
-void Bureaucrat::signForm(Form &toSign) {
+void Bureaucrat::signForm(AForm &toSign) {
     try {
         toSign.beSigned(*this);
     } catch (std::exception &e) {
