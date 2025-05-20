@@ -19,10 +19,14 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm(targ
 
 // function
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
-    int random = rand() % 2;
-
-    if (random)
-        std::cout << _target << " has been robotomized" << std::endl;
+    if (executor.getGrade() <= this->getExecuteGrade())
+    { 
+        int random = rand() % 2;
+        if (random)
+            std::cout << _target << " has been robotomized" << std::endl;
+        else
+            std::cout << _target << " has failed to robotomized" << std::endl;
+    }
     else
-        std::cout << _target << " has failed to robotomized" << std::endl;
+        throw RobotomyRequestForm::GradeTooLowException();
 }
