@@ -5,8 +5,6 @@
 #include "Form.hpp"
 
 class ShrubberyCreationForm : public AForm {
-    private:
-        const std::string _target;
     public:
         // orthodox canonical form
         ShrubberyCreationForm();

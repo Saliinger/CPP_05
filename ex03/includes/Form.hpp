@@ -10,6 +10,8 @@ class AForm {
         bool _signed;
         const int _signGrade;
         const int _executeGrade;
+    protected:
+        const std::string _target;
     public:
         // orthodox canonical form
         AForm();
