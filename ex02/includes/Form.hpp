@@ -4,7 +4,7 @@
 
 class Bureaucrat;
 
-class Form {
+class AForm {
     private:
         const std::string _name;
         bool _signed;
@@ -12,13 +12,14 @@ class Form {
         const int _executeGrade;
     public:
         // orthodox canonical form
-        Form();
-        Form(Form const &src);
-        Form &operator=(Form const &src);
-        ~Form();
+        AForm();
+        AForm(AForm const &src);
+        AForm &operator=(AForm const &src);
+        virtual ~AForm() = 0;
 
         // other constructor
-        Form(const std::string name, const int signGrade, const int executeGrade);
+        AForm(const std::string name, const int signGrade, const int executeGrade);
+
 
         // functions
         const std::string &getName() const;
