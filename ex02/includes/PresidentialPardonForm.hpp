@@ -5,6 +5,8 @@
 #include "Form.hpp"
 
 class PresidentialPardonForm : public AForm {
+    private:
+        const std::string _target;
     public:
         // orthodox cannonical form
         PresidentialPardonForm();

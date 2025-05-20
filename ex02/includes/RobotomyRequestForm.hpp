@@ -4,6 +4,8 @@
 #include "Form.hpp"
 
 class RobotomyRequestForm : public AForm {
+    private:
+        const std::string _target;
     public:
         // othodox cannonical form
         RobotomyRequestForm();
