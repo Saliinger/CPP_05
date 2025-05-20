@@ -1,9 +1,9 @@
 #include "../includes/ShrubberyCreationForm.hpp"
 
 // orthodox cannonical form
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Default", 145, 137, "Default") {};
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137, "Default") {};
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) : AForm(src.getName(), src.getSignGrade(), src.getExecuteGrade(), src._target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) : AForm("ShrubberyCreationForm", src.getSignGrade(), src.getExecuteGrade(), src._target) {}
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src) {
     (void)src;
@@ -13,7 +13,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 ShrubberyCreationForm::~ShrubberyCreationForm() {};
 
 // other constructor
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm(target, 145, 137, target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShrubberyCreationForm", 145, 137, target) {}
 
 // function
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {

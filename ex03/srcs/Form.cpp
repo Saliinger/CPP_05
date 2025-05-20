@@ -1,9 +1,9 @@
 #include "../includes/Form.hpp"
 
 // orthodox cannonical AForm
-AForm::AForm() : _name("Default"), _signed(false), _signGrade(150), _executeGrade(150) {}
+AForm::AForm() : _name("Default"), _signed(false), _signGrade(150), _executeGrade(150), _target("Default") {}
 
-AForm::AForm(const AForm &src) : _name(src._name), _signed(src._signed),  _signGrade(src._signGrade), _executeGrade(src._executeGrade) {}
+AForm::AForm(const AForm &src) : _name(src._name), _signed(src._signed),  _signGrade(src._signGrade), _executeGrade(src._executeGrade), _target(src._target) {}
 
 AForm &AForm::operator=(AForm const &src) {
     if (this != &src)
@@ -14,7 +14,7 @@ AForm &AForm::operator=(AForm const &src) {
 AForm::~AForm() {}
 
 // other constructor
-AForm::AForm(const std::string name, const int signGrade, const int executeGrade) : _name(name), _signed(false), _signGrade(signGrade), _executeGrade(executeGrade) {}
+AForm::AForm(const std::string &name, const int signGrade, const int executeGrade, const std::string &target) : _name(name), _signed(false), _signGrade(signGrade), _executeGrade(executeGrade), _target(target){}
 
 // functions
 void AForm::beSigned(Bureaucrat const &src) {

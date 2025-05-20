@@ -8,6 +8,7 @@ SRCS =	./srcs/Bureaucrat.cpp \
 		./srcs/PresidentialPardonForm.cpp \
 		./srcs/RobotomyRequestForm.cpp \
 		./srcs/ShrubberyCreationForm.cpp \
+		./srcs/Intern.cpp \
 		main.cpp
 
 OBJ = $(SRCS:.cpp=.o)

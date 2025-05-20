@@ -20,7 +20,7 @@ class AForm {
         virtual ~AForm() = 0;
 
         // other constructor
-        AForm(const std::string name, const int signGrade, const int executeGrade);
+        AForm(const std::string &name, const int signGrade, const int executeGrade, const std::string &target);
 
         // getter
         const std::string &getName() const;
