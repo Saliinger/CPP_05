@@ -13,4 +13,11 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &s
 RobotomyRequestForm::~RobotomyRequestForm() {};
 
 // other constructor
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm(target, 72, 45) {};
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm(target, 72, 45) {
+    std::cout << "Robotomy fail 50% of the time" << std::endl;
+};
+
+// function
+void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
+    
+}

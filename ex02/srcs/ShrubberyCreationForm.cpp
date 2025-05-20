@@ -13,22 +13,27 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 ShrubberyCreationForm::~ShrubberyCreationForm() {};
 
 // other constructor
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm(target, 145, 137) {
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm(target, 145, 137) {}
 
-    std::string name = target + "_shrubbery";
-
-    std::ofstream tree(name.c_str());
-
-    tree << "     ccee88oo" << std::endl;
-    tree << "  C8O8O8Q8PoOb o8oo" << std::endl;
-    tree << " dOB69QO8PdUOpugoO9bD" << std::endl;
-    tree << "CgggbU8OU qOp qOdoUOdcb" << std::endl;
-    tree << "    6OuU  /p u gcoUodpP" << std::endl;
-    tree << "      /////  /douUP" << std::endl;
-    tree << "        //////" << std::endl;
-    tree << "         |||" << std::endl;
-    tree << "         |||" << std::endl;
-    tree << "         |||" << std::endl;
-    tree << "   .....//||...." << std::endl;
-    tree.close();
-};
+// function
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
+    if (executor.getGrade() <= this->getExecuteGrade())
+    {
+        std::string name = this->getName() + "_shrubbery";
+        std::ofstream tree(name.c_str());
+        tree << "     ccee88oo" << std::endl;
+        tree << "  C8O8O8Q8PoOb o8oo" << std::endl;
+        tree << " dOB69QO8PdUOpugoO9bD" << std::endl;
+        tree << "CgggbU8OU qOp qOdoUOdcb" << std::endl;
+        tree << "    6OuU  /p u gcoUodpP" << std::endl;
+        tree << "      /////  /douUP" << std::endl;
+        tree << "        //////" << std::endl;
+        tree << "         |||" << std::endl;
+        tree << "         |||" << std::endl;
+        tree << "         |||" << std::endl;
+        tree << "   .....//||...." << std::endl;
+        tree.close();
+    }
+    else
+        throw ShrubberyCreationForm::GradeTooLowException();
+}

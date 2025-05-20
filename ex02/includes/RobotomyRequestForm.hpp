@@ -13,4 +13,7 @@ class RobotomyRequestForm : public AForm {
 
         // other constructor
         RobotomyRequestForm(const std::string &target);
+
+        // function
+        void execute(Bureaucrat const &executor) const;
 };

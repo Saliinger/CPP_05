@@ -14,4 +14,7 @@ class ShrubberyCreationForm : public AForm {
 
         // other constructor
         ShrubberyCreationForm(const std::string &target);
+
+        // function
+        void execute(Bureaucrat const &executor) const;
 };

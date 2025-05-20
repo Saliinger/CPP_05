@@ -6,7 +6,7 @@ PresidentialPardonForm::PresidentialPardonForm() : AForm("Default", 25, 5) {};
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src) : AForm(src.getName(), src.getSignGrade(), src.getExecuteGrade()) {}
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &src) {
-    src.getExecuteGrade();
+    (void)src;
     return *this;
 }
 
@@ -14,3 +14,11 @@ PresidentialPardonForm::~PresidentialPardonForm() {};
 
 // other constructor
 PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm(target, 25, 5) {}
+
+// function
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const {
+    if (executor.getGrade() <= this->getExecuteGrade())
+        std::cout << this->getName() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+    else
+        throw PresidentialPardonForm::GradeTooLowException();
+}

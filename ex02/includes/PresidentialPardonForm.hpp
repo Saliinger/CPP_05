@@ -14,4 +14,7 @@ class PresidentialPardonForm : public AForm {
 
         // other constructor
         PresidentialPardonForm(const std::string target);
+
+        // function
+        void execute(Bureaucrat const &executor) const;
 };

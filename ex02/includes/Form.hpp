@@ -20,14 +20,15 @@ class AForm {
         // other constructor
         AForm(const std::string name, const int signGrade, const int executeGrade);
 
-
-        // functions
+        // getter
         const std::string &getName() const;
         bool isSign() const;
         int getSignGrade() const;
         int getExecuteGrade() const;
 
+        // functions
         void beSigned(Bureaucrat const &src);
+        virtual void execute(Bureaucrat const &executor) const = 0;
 
         // exception
         class GradeTooLowException : public std::exception {
