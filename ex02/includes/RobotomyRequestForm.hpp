@@ -10,4 +10,7 @@ class RobotomyRequestForm : public AForm {
         RobotomyRequestForm(const RobotomyRequestForm &src);
         RobotomyRequestForm &operator=(const RobotomyRequestForm &src);
         ~RobotomyRequestForm();
+
+        // other constructor
+        RobotomyRequestForm(const std::string &target);
 };

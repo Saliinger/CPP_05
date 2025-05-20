@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <fstream>
 #include "Form.hpp"
 
 class ShrubberyCreationForm : public AForm {
@@ -10,4 +11,7 @@ class ShrubberyCreationForm : public AForm {
         ShrubberyCreationForm(const ShrubberyCreationForm &src);
         ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
         ~ShrubberyCreationForm();
+
+        // other constructor
+        ShrubberyCreationForm(const std::string &target);
 };
