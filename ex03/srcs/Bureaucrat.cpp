@@ -7,13 +7,14 @@ Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {
 
 Bureaucrat::Bureaucrat(Bureaucrat const &src) {
     std::cout << "Copy constructor called" << std::endl;
-    *this = src;
+    if (this != &src)
+        _grade = src._grade; // PATCH
 }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &src) {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &src)
-       *this = src;
+       _grade = src._grade; // PATCH
     return *this;
 }
 
